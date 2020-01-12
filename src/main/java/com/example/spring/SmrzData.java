@@ -1,6 +1,8 @@
 package com.example.spring;
 
 
+import org.apache.commons.lang.StringUtils;
+
 public class SmrzData {
     private String sfzjhm;
     private String sfzjlx;
@@ -45,8 +47,12 @@ public class SmrzData {
     @Override
     public int hashCode() {
         StringBuffer sb = new StringBuffer();
-        sb.append(this.sfzjhm.hashCode());
-        sb.append(this.sfzjlx.hashCode());
+        if (!StringUtils.isBlank(this.sfzjhm)) {
+            sb.append(this.sfzjhm.hashCode());
+        }
+        if (!StringUtils.isBlank(this.sfzjlx)) {
+            sb.append(this.sfzjlx.hashCode());
+        }
         System.out.println(sb.toString().hashCode());
         return sb.toString().hashCode();
     }
