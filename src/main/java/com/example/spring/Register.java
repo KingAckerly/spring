@@ -3,11 +3,9 @@ package com.example.spring;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import org.apache.commons.lang.StringUtils;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Register {
     public static void main(String[] args) {
@@ -28,7 +26,7 @@ public class Register {
         JSONObject json3 = new JSONObject();
         json3.put("sfzjhm", "423");
         json3.put("sfzjlx", "3");
-        json3.put("smrzRL", "1");
+        json3.put("smrzRL", "");
         jsonArray.add(json3);
         System.out.println("jsonArray:" + jsonArray);
         System.out.println("jsonArray.toString():" + jsonArray.toString());
@@ -49,5 +47,13 @@ public class Register {
         System.out.println("set:" + set);
         list = new ArrayList<>(set);
         System.out.println("list去重后:" + list);
+        Iterator<SmrzData> it = list.iterator();
+        while (it.hasNext()) {
+            SmrzData smrzData = it.next();
+            if (StringUtils.isBlank(smrzData.getSmrzRL())) {
+                it.remove();
+            }
+        }
+        System.out.println("过滤掉没有smrzRL的元素后,list:" + list);
     }
 }
