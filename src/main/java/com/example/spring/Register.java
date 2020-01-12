@@ -4,6 +4,7 @@ package com.example.spring;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -22,7 +23,7 @@ public class Register {
         JSONObject json2 = new JSONObject();
         json2.put("sfzjhm", "420");
         json2.put("sfzjlx", "11");
-        json2.put("smrzRL", "5");
+        json2.put("smrzRL", "6");
         jsonArray.add(json2);
         JSONObject json3 = new JSONObject();
         json3.put("sfzjhm", "423");
@@ -46,5 +47,7 @@ public class Register {
             set.add(smrzData);
         }
         System.out.println("set:" + set);
+        list = new ArrayList<>(set);
+        System.out.println("list去重后:" + list);
     }
 }
