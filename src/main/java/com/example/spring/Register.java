@@ -40,10 +40,7 @@ public class Register {
         List<SmrzData> list = JSONObject.parseArray(jsonStr, SmrzData.class);
         System.out.println("list:" + list);
         //转Set去重
-        Set<SmrzData> set = new HashSet<>();
-        for (SmrzData smrzData : list) {
-            set.add(smrzData);
-        }
+        Set<SmrzData> set = new HashSet<>(list);
         System.out.println("set:" + set);
         list = new ArrayList<>(set);
         System.out.println("list去重后:" + list);
