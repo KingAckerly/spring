@@ -36,9 +36,9 @@ public abstract class Subject {
      *
      * @param message
      */
-    public void nodifyObservers(String message) {
+    public void nodifyObservers(String message, String addr) {
         for (Observer observer : list) {
-            observer.update(message);
+            observer.update(message, addr);
         }
     }
 }

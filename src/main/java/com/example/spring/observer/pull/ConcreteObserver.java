@@ -24,7 +24,9 @@ public class ConcreteObserver implements Observer {
     public void update(Subject subject) {
         // 主动去主题里拿数据
         message = ((ConcreteSubject) subject).getMessage();
+        //String addr = ((ConcreteSubject) subject).getAddr();
         System.out.println(getName() + "收到推送消息：" + message);
+        //System.out.println(getName() + "地址：" + addr);
     }
 
     @Override
